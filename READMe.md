@@ -1,4 +1,4 @@
-# chatApp [demo](https://chat-app-pied-three.vercel.app/)
+# chatApp [demo](https://chat-pafj5od6x-shivankkunwar.vercel.app/)
 ## A Front end clone of Whatsapp 
 ## Tech used 
 * React js 
