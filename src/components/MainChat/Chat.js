@@ -5,7 +5,7 @@ import MicIcon from '@material-ui/icons/Mic';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import './Chat.css';
 import { useParams } from 'react-router-dom';
-
+import introImgLight from "../../data/intro-connection-light.jpg"
 import { useDispatch, useSelector} from "react-redux";
 import { updateData } from '../../Redux/data';
 import { nanoid } from '@reduxjs/toolkit';
@@ -64,17 +64,42 @@ function Chat() {
                 </div>
             </div>
             <div className='chat_body'>
-                {messages.map(msg => (
-                    <p key ={msg.id} className={`chat_message ${ msg.name == "you" && 'chat_receiver'}`}>
-                        <span className="chat_name">{msg.name}</span>
-                        {msg.message}
-                        <span className="chat_timestemp">
+                
+                        {
+                        
+                        roomId?
+                        (messages.map(msg => (
+                            <p key ={msg.id} className={`chat_message ${ msg.name == "you" && 'chat_receiver'}`}>
+                                <span className="chat_name">{msg.name}</span>
+                                {msg.message}
+                                <span className="chat_timestemp">
+                                    
+                                </span>
+                            </p>
+                        )
+                        ))
+                        :(
+                            <div className="home">
+                           
+
+                            <h1 className="home__title"> Keep your phone connected </h1>
+                            <p className="home__text">
+                                WhatsApp connects to your phone to sync messages. To reduce data usage,
+                                connect your phone to Wi-Fi.
+                            </p>
                             
-                        </span>
-                    </p>
-                ))}
+                        </div>
+                        )
+                            
+                        }
+                        
+                
+                
             </div>
-            <div className='chat_footer'>
+            {
+                roomId?
+                    (
+                        <div className='chat_footer'>
                 <form>
                 <InsertEmoticonIcon />
                         
@@ -86,6 +111,13 @@ function Chat() {
                 <MicIcon/>
                 </form>
             </div>
+                    ):(
+                        <div>
+                            
+                         </div>   
+                    )
+            }
+            
             
         </div>
     )

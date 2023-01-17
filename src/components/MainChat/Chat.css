@@ -152,3 +152,17 @@
   background-color: #298e46;
   box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
+
+.home {
+    
+    padding: 20px;
+    height: 90%;
+    flex: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 6px solid rgb(6, 215, 85);
+}
+
