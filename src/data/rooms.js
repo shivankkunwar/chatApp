@@ -7,7 +7,7 @@ let rooms=[
                 
                 {
                     message: "hey this is test1",
-                    name: "test1",
+                    name: "Anmol",
                     timeStamp:"",
                     id:"1"
                 },
@@ -19,14 +19,14 @@ let rooms=[
                 },
                 {
                     message:"working",
-                    name:"test1",
+                    name:"Anmol",
                     timeStamp:"",
                     id:"3"
                 }
                 ,
                 {
                     message:"what are you doing?",
-                    name:"test1",
+                    name:"Anmol",
                     timeStamp:"",
                     id:"4"
                 }
@@ -43,7 +43,7 @@ let rooms=[
                 
                 {
                     message: "hey this is test2",
-                    name: "test2",
+                    name: "Ashish",
                     timeStamp:"",
                     id:"5"
                 },
@@ -55,14 +55,14 @@ let rooms=[
                 },
                 {
                     message:" are you working",
-                    name:"test2",
+                    name:"Ashish",
                     timeStamp:"",
                     id:"7"
                 }
                 ,
                 {
                     message:"testing 2",
-                    name:"test2",
+                    name:"Ashish",
                     timeStamp:"",
                     id:"1"
                 }
@@ -78,7 +78,7 @@ let rooms=[
                 
                 {
                     message: "hey this is test3",
-                    name: "test3",
+                    name: "Deepak",
                     timeStamp:"",
                     id:"1"
                 },
@@ -90,7 +90,7 @@ let rooms=[
                 },
                 {
                     message:"ipsum",
-                    name:"test3",
+                    name:"Deepak",
                     timeStamp:"",
                     id:"3"
                 }
@@ -113,7 +113,7 @@ let rooms=[
                 
                 {
                     message: "hey this is test4",
-                    name: "test4",
+                    name: "Priya",
                     timeStamp:"",
                     id:"1"
                 },
@@ -125,14 +125,14 @@ let rooms=[
                 },
                 {
                     message:"this is a chat app",
-                    name:"test4",
+                    name:"Priya",
                     timeStamp:"",
                     id:"3"
                 }
                 ,
                 {
                     message:"it uses react and redux",
-                    name:"test4",
+                    name:"Priya",
                     timeStamp:"",
                     id:"4"
                 }
@@ -148,7 +148,7 @@ let rooms=[
                 
                 {
                     message: "hey this is test5",
-                    name: "test5",
+                    name: "Hitesh",
                     timeStamp:"",
                     id:"1"
                 },
@@ -160,14 +160,14 @@ let rooms=[
                 },
                 {
                     message:"and the message updates in the sidebar",
-                    name:"test5",
+                    name:"Hitesh",
                     timeStamp:"",
                     id:"3"
                 }
                 ,
                 {
                     message:"what are you doing?",
-                    name:"test5",
+                    name:"Hitesh",
                     timeStamp:"",
                     id:"4"
                 }
