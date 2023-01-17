@@ -6,21 +6,25 @@ import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import './Chat.css';
 import { useParams } from 'react-router-dom';
 
-import rooms from "./data/rooms";
+import { useDispatch, useSelector} from "react-redux";
+import { updateData } from '../../Redux/data';
+import { nanoid } from '@reduxjs/toolkit';
 function Chat() {
     const [input, setInput] = useState("");
     const [seed, setSeed] = useState("");
     const {roomId} = useParams();
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
-   
+    const { room } = useSelector((state)=> state.dataUp);
+    const dispatch = useDispatch();
+
 
     useEffect(()=>{
         if(roomId){
-            setRoomName(rooms.find(data=>data.id==roomId).data.name);
-            setMessages(rooms.find(data=>data.id==roomId).data.messages);
+            setRoomName(room.find(data=>data.id==roomId).data.name);
+            setMessages(room.find(data=>data.id==roomId).data.messages);
         }
-    },[roomId])
+    },[roomId,room])
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));        
@@ -28,14 +32,10 @@ function Chat() {
 
     const sendMessage = (e) => {
         e.preventDefault();
-        setMessages(
-            messages.concat({
-                message:input,
-                name:"you",
-                timestamp:""
-            }) );
-        
 
+        dispatch(updateData({message:input,
+                     name:"you",
+                   timestamp:"",roomId,id:nanoid()}))
         setInput("");
     }
 
@@ -65,7 +65,7 @@ function Chat() {
             </div>
             <div className='chat_body'>
                 {messages.map(msg => (
-                    <p className={`chat_message ${ msg.name == "you" && 'chat_receiver'}`}>
+                    <p key ={msg.id} className={`chat_message ${ msg.name == "you" && 'chat_receiver'}`}>
                         <span className="chat_name">{msg.name}</span>
                         {msg.message}
                         <span className="chat_timestemp">
@@ -81,7 +81,7 @@ function Chat() {
                     <input value={input} onChange={(e) => setInput(
                         e.target.value
                         )} type="text" placeholder="Type a message"/>
-                    <button type="submit" onClick={sendMessage}> Send </button>
+                    <button className="button-3" type="submit" onClick={sendMessage}> Send </button>
                
                 <MicIcon/>
                 </form>

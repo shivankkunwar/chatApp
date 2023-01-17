@@ -2,41 +2,24 @@ import React, {useEffect, useState} from 'react';
 import {Avatar} from "@material-ui/core";
 import './SidebarChat.css';
 import {Link} from 'react-router-dom';
-import rooms from "./data/rooms"
+import { useDispatch, useSelector} from "react-redux";
 function SidebarChat({id,name,addNewChat}) {
     const [seed, setSeed] = useState("");
     const [messages, setMessages] = useState("");
+    const { room } = useSelector((state)=> state.dataUp);
    
     useEffect(() => {
         if(id){
-            setMessages(rooms.find(data=>data.id==id).data.messages);
+            setMessages(room.find(data=>data.id==id).data.messages);
         }
        
-    }, [id]);
+    }, [id,room]);
 
     useEffect(() => {
         setSeed(Math.floor(Math.random() * 5000));        
     }, []);
 
-    const createChat = () => {
-        const roomName = prompt("Please Enter Name for Chat");
-        console.log(roomName);
-        if(roomName){
-
-            setMessages(
-                rooms.concat({
-                    id:`${rooms.length+1}`,
-                    data:{
-                        name:roomName,
-                        messages:[]
-                    }
-                })
-            )
-           
-            console.log(rooms);
-           
-        }
-    };
+  
 
     return !addNewChat ? (
         <Link to={`/rooms/${id}`} key={id}>
@@ -44,16 +27,17 @@ function SidebarChat({id,name,addNewChat}) {
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
                 <div className="sidebarChat_info">
                     <h2>{name}</h2>
-                    <p>{messages[0]?.message}</p>
+                    <p>{messages[messages.length-1]?.message}</p>
                 </div>
             </div>
         </Link>
         
     ) : (
-        <div onClick={createChat} className="sidebarChat">
+        <div className="sidebarChat">
             <h3 className="add-new-chat-title">Add New Chat</h3>
         </div>
     )
 }
+
 
 export default SidebarChat

@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState} from 'react';
-import Sidebar from './Sidebar';
-import Chat from './Chat';
+import Sidebar from './components/Sidebar/Sidebar';
+import Chat from './components/MainChat/Chat';
 
 import { BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 

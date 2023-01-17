@@ -5,13 +5,15 @@ import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import {SearchOutlined} from "@material-ui/icons";
-import SidebarChat from "./SidebarChat";
+import SidebarChat from "../sidebarChat/SidebarChat";
 
-import rooms from "./data/rooms";
+
+import { useDispatch, useSelector } from 'react-redux';
 function Sidebar(props) {
 
- 
-   
+    const { room } = useSelector((state) => state.dataUp)
+    
+    const dispatch=useDispatch();
 
 
     return (
@@ -40,7 +42,7 @@ function Sidebar(props) {
             </div>
             <div className="sidebar_chats">
                 <SidebarChat addNewChat/>
-                {rooms.map(room=> (
+                {room.map(room=> (
                     <SidebarChat key={room.id} id={room.id} name={room.data.name}/>
                 ))}
             </div>
